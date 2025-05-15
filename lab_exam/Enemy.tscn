@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cik5126xkwjsr"]
 
 [ext_resource type="Script" uid="uid://ce2wc36aq72mx" path="res://enemy.gd" id="1_s7bn3"]
-[ext_resource type="Texture2D" uid="uid://8jty6flv3r6i" path="res://32x32white.png" id="1_tt7e2"]
+[ext_resource type="Texture2D" uid="uid://bunmq7i1h3xhf" path="res://32x32red.png" id="2_s7bn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bn3"]
 
@@ -14,4 +14,4 @@ script = ExtResource("1_s7bn3")
 shape = SubResource("RectangleShape2D_s7bn3")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("1_tt7e2")
+texture = ExtResource("2_s7bn3")

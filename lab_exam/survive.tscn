@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo33g3bpvh6ks"]
+[gd_scene load_steps=8 format=3 uid="uid://bo33g3bpvh6ks"]
 
 [ext_resource type="Script" uid="uid://cryrpt7hpywjj" path="res://player.gd" id="1_k10ni"]
 [ext_resource type="Texture2D" uid="uid://8jty6flv3r6i" path="res://32x32white.png" id="1_qom0i"]
 [ext_resource type="Script" uid="uid://ba33ivsr4itym" path="res://spawn.gd" id="3_ybcc0"]
+[ext_resource type="Script" uid="uid://cilq0uobqyv31" path="res://UI.gd" id="4_ybcc0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bd3n3"]
 
@@ -35,7 +36,28 @@ shape = SubResource("RectangleShape2D_v54o6")
 script = ExtResource("3_ybcc0")
 
 [node name="Timer" type="Timer" parent="Spawner"]
+wait_time = 0.05
 autostart = true
 ignore_time_scale = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_ybcc0")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 40.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 50
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
