@@ -10,3 +10,4 @@ func _process(delta: float) -> void:
 	target_pos.x += -1250
 	global_position = global_position.move_toward(target_pos,5)
 	
+	

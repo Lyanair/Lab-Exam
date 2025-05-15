@@ -3,6 +3,7 @@ extends Node2D
 var enemy_scene:PackedScene
 @export var counter = 0
 
+
 func _ready() -> void:
 	enemy_scene = load("res://Enemy.tscn")
 	
