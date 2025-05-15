@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cik5126xkwjsr"]
+[gd_scene load_steps=6 format=3 uid="uid://cik5126xkwjsr"]
 
 [ext_resource type="Script" uid="uid://ce2wc36aq72mx" path="res://enemy.gd" id="1_s7bn3"]
-[ext_resource type="Script" uid="uid://6c56650mq7l5" path="res://collision_shape_2d.gd" id="2_2hac7"]
 [ext_resource type="Texture2D" uid="uid://bunmq7i1h3xhf" path="res://32x32red.png" id="2_s7bn3"]
+[ext_resource type="Script" uid="uid://c7n4xw2ox0gts" path="res://enemyarea.gd" id="3_2hac7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hac7"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,7 +15,13 @@ script = ExtResource("1_s7bn3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_s7bn3")
-script = ExtResource("2_2hac7")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("2_s7bn3")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+script = ExtResource("3_2hac7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_2hac7")
