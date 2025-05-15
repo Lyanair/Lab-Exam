@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo33g3bpvh6ks"]
+[gd_scene load_steps=7 format=3 uid="uid://bo33g3bpvh6ks"]
 
+[ext_resource type="Script" uid="uid://cryrpt7hpywjj" path="res://player.gd" id="1_k10ni"]
 [ext_resource type="Texture2D" uid="uid://8jty6flv3r6i" path="res://32x32white.png" id="1_qom0i"]
+[ext_resource type="Script" uid="uid://ba33ivsr4itym" path="res://spawn.gd" id="3_ybcc0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bd3n3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qom0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v54o6"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
 material = SubResource("CanvasItemMaterial_bd3n3")
 position = Vector2(207, 363)
+script = ExtResource("1_k10ni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 scale = Vector2(1.56, 1.56)
@@ -18,3 +23,19 @@ shape = SubResource("RectangleShape2D_qom0i")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_qom0i")
+
+[node name="Destroy Spawns" type="Area2D" parent="."]
+position = Vector2(-75, 319)
+scale = Vector2(-7.51011, 32.9931)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Destroy Spawns"]
+shape = SubResource("RectangleShape2D_v54o6")
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("3_ybcc0")
+
+[node name="Timer" type="Timer" parent="Spawner"]
+autostart = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
